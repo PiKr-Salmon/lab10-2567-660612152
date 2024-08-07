@@ -9,7 +9,7 @@ import { UserCardProps } from "@/libs/types";
 
 export default function RandomUserPage() {
   // annotate type for users state variable
-  const [users, setUsers] = useState<any>(null);
+  const [users, setUsers] = useState<UserCardProps[]>([]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [genAmount, setGenAmount] = useState("");
@@ -65,7 +65,7 @@ export default function RandomUserPage() {
       {isLoading && (
         <p className="display-6 text-center fst-italic my-4">Loading ...</p>
       )}
-      {users && !isLoading && users.map((Users : any) => { return <UserCard {...Users}/>})}
+      {users && !isLoading && users.map((user : UserCardProps) => <UserCard name={user.name} imgUrl={user.imgUrl} address={user.address} email={user.email} key={user.email}/>)}
     </div>
   );
 }
