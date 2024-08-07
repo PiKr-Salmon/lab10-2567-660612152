@@ -21,7 +21,7 @@ export default function RandomUserPage() {
       return;
     }
     const jsonstr = JSON.stringify(genAmount);
-    localStorage.setItem('users',jsonstr);
+    localStorage.setItem("users",jsonstr);
   },[genAmount]);
 
   useEffect(() => {
